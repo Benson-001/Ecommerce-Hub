@@ -3,6 +3,8 @@ const app = express();
 import dotenv from "dotenv";
 import dbConnection from "./utils/db.js";
 import cron from "node-cron";
+import sendWelcomeEmail from "./EmailServices/sendWelcomeEmail.js";
+import sendPendingOrderEmail from "./EmailServices/sendPendingOrderEmail.js";
 
 dotenv.config();
 
@@ -12,7 +14,8 @@ const PORT = process.env.PORT;
 
 const services = () => {
   cron.schedule("* * * * * *", () => {
-    
+    sendWelcomeEmail();
+    sendPendingOrderEmail();
   });
 };
 
