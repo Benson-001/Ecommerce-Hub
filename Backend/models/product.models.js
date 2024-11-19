@@ -33,23 +33,23 @@ const ProductSchema = mongoose.Schema({
     type: Array,
   },
   concern: {
-    type: Array
+    type: Array,
   },
   brand: {
-    type: String
+    type: String,
   },
   skinType: {
-    type: String
+    type: String,
   },
   originalPrice: {
-    type: Number
+    type: Number,
   },
   discountedPrice: {
-    type: Number
+    type: Number,
   },
   inStock: {
     type: Boolean,
-    default: true
+    default: true,
   },
   ratings: [
     {
@@ -60,6 +60,8 @@ const ProductSchema = mongoose.Schema({
     },
   ],
 });
+
+ProductSchema.index({ "$**": "text" });
 
 const Product = mongoose.model("Product", ProductSchema);
 export default Product;
