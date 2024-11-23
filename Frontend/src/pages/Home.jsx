@@ -1,15 +1,14 @@
 import Banner from "../components/Banner";
-import Category from "../components/Category";
 import Products from "../components/Products";
-
+import SliderItem from "../components/Slider";
 const Home = () => {
   return (
     <div>
       <Banner />
-      <Category />
+      <SliderItem />
       <Products />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

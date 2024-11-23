@@ -1,30 +1,28 @@
-import Home from "./pages/Home";
-import Cart from "./pages/Cart";
-import Myaccount from "./pages/Myaccount";
+import Announcements from "./components/Announcements";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Announcements from "./components/Announcements";
-import Product from "./pages/Product"
+import Home from "./pages/Home";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import Order from "./pages/Order";
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import ProductList from "./pages/ProductList";
-import Order from "./pages/Order";
-
-
+import Checkout from "./pages/Checkout";
+import Account from "./pages/Account";
 
 function App() {
   const Layout = () => {
-    return (
+    return <>
       <div>
         <Announcements />
         <Navbar />
         <Outlet />
         <Footer />
       </div>
-    );
+      </>
   };
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -35,8 +33,20 @@ function App() {
           element: <Home />,
         },
         {
+          path: "/product/:id",
+          element: <Product />,
+        },
+        {
           path: "/cart",
           element: <Cart />,
+        },
+        {
+          path: "/checkout",
+          element: <Checkout />,
+        },
+        {
+          path: "/orders",
+          element: <Order/>,
         },
         {
           path: "/login",
@@ -47,29 +57,19 @@ function App() {
           element: <Register />,
         },
         {
-          path: "/myaccount",
-          element: <Myaccount />,
-        },
-        {
           path: "/products/:search",
           element: <ProductList />,
-        },
-        {
-          path: "/product/:productId",
-          element: <Product />,
-        },
-        {
-          path: "/orders",
-          element: <Order/>,
-        },
+        }, {
+          path: "/myAccount",
+          element: <Account />,
+        }
       ],
     },
   ]);
-
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
-    </div>
+    </>
   );
 }
 
