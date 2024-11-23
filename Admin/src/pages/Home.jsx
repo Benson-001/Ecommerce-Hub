@@ -1,3 +1,4 @@
+
 import { LineChart } from "@mui/x-charts/LineChart";
 
 const Home = () => {
@@ -119,3 +120,4 @@ const Home = () => {
 };
 
 export default Home;
+
