@@ -34,7 +34,7 @@ const Banner = () => {
             Shop Now
           </button>
           <button className="bg-gray-500 p-[10px] w-[200px] text-white cursor-pointer">
-            CALL: +(789) 865 354
+            CALL: +(254) 740548173
           </button>
         </div>
       </div>
